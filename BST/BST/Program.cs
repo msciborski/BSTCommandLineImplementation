@@ -23,6 +23,8 @@ namespace BST {
             else{
                 Console.WriteLine("Nie znalazlo.");
             }
+            Console.WriteLine(tree.MinValue());
+            Console.WriteLine(tree.MaxValue());
         }
     }
 }

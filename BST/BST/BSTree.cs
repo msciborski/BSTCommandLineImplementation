@@ -64,6 +64,11 @@ namespace BST {
             }
 
         }
+        /// <summary>
+        /// Searching binary tree and looking for value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
 
         public bool Find(int value){
             if (Root != null){
@@ -79,7 +84,7 @@ namespace BST {
             }
         }
 
-        private bool Find(BSTNode root, int value){
+        private static bool Find(BSTNode root, int value){
             if (root != null){
                 if (root.Value.CompareTo(value) == 0){
                     return true;
@@ -98,7 +103,44 @@ namespace BST {
                 return false;
             }
         }
+        /// <summary>
+        /// Method return min value of bst
+        /// </summary>
+        /// <returns></returns>
 
+        public int MinValue(){
+            if (Root.LeftNode == null || Root.RightNode == null){
+                return Root.Value;
+            }
+            else{
+                return MinValue(Root);
+            }
+        }
 
+        private static int MinValue(BSTNode root){
+            while (true){
+                if (root.LeftNode == null){
+                    return root.Value;
+                }
+                root = root.LeftNode;
+            }
+        }
+
+        public int MaxValue() {
+            if (Root.LeftNode == null || Root.RightNode == null) {
+                return Root.Value;
+            } else {
+                return MaxValue(Root);
+            }
+        }
+
+        private static int MaxValue(BSTNode root) {
+            while (true) {
+                if (root.RightNode == null) {
+                    return root.Value;
+                }
+                root = root.RightNode;
+            }
+        }
     }
 }
