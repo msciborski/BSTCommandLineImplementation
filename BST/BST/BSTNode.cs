@@ -15,25 +15,5 @@ namespace BST {
             LeftNode = null;
             RightNode = null;
         }
-
-        public void Insert(BSTNode root, int value){
-            if (root != null){
-                if (root.Value != value){
-                    if (root.Value > value){
-                        if (root.LeftNode != null){
-                            Insert(root.LeftNode, value);
-                        }
-                        else{
-                            root.LeftNode = new BSTNode(value);
-                        }
-                    }
-                    else{
-                        if (root.RightNode != null){
-                            Insert(root.RightNode,value);
-                        }
-                    }
-                }
-            }
-        }
     }
 }
