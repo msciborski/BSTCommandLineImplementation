@@ -42,28 +42,36 @@ namespace BST {
         /// <param name="root"></param>
         /// <param name="value"></param>
         /// 
-
         private void Insert(BSTNode root, int value){
-            if (root != null){
-                if (value == root.Value) {
-                    return;
-                }
-                if (root.Value > value) {
-                    if (root.LeftNode == null) {
-                        root.LeftNode = new BSTNode(value);
-                    } else {
-                        Insert(root.LeftNode, value);
+            while (true){
+                if (root != null){
+                    if (value == root.Value){
+                        return;
                     }
-                } else {
-                    if (root.RightNode == null) {
-                        root.RightNode = new BSTNode(value);
-                    } else {
-                        Insert(root.RightNode, value);
+                    if (root.Value > value){
+                        if (root.LeftNode == null){
+                            root.LeftNode = new BSTNode(value);
+                        }
+                        else{
+                            root = root.LeftNode;
+                            continue;
+                        }
+                    }
+                    else{
+                        if (root.RightNode == null){
+                            root.RightNode = new BSTNode(value);
+                        }
+                        else{
+                            root = root.RightNode;
+                            continue;
+                        }
                     }
                 }
-            }
 
+                break;
+            }
         }
+
         /// <summary>
         /// Searching binary tree and looking for value
         /// </summary>
